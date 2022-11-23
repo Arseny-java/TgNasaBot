@@ -8,11 +8,11 @@ import org.telegram.telegrambots.updatesreceivers.DefaultBotSession;
 import java.io.IOException;
 
 public class MyTelegramBot extends TelegramLongPollingBot {
-    public static final String BOT_TOKEN = "5888248457:AAEfzmb4Qxdp0tHVyWbTEplDEMqMzKqdPcg";
+    public static final String BOT_TOKEN = " Àﬁ◊ ¬¿ÿ≈√Œ ¡Œ“¿";
 
-    public static final String BOT_USERNAME = "NasaNetology_bot";
+    public static final String BOT_USERNAME = "»Ãﬂ ¬¿ÿ≈√Œ ¡Œ“¿";
 
-    public static final String URI = "https://api.nasa.gov/planetary/apod?api_key=uHnpXohqscz4tEJkjGSvfT8OvaousFC9EGGVh9Wi";
+    public static final String URI = "https://api.nasa.gov/planetary/apod?api_key=¬¿ÿ  Àﬁ◊";
 
     public MyTelegramBot() throws TelegramApiException {
         TelegramBotsApi botsApi = new TelegramBotsApi(DefaultBotSession.class);
