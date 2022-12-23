@@ -13,6 +13,8 @@ public class MyTelegramBot extends TelegramLongPollingBot {
     public static final String BOT_USERNAME = "ИМЯ ВАШЕГО БОТА";
 
     public static final String URI = "https://api.nasa.gov/planetary/apod?api_key=ВАШ КЛЮЧ";
+    public static long chatId;
+
 
     public MyTelegramBot() throws TelegramApiException {
         TelegramBotsApi botsApi = new TelegramBotsApi(DefaultBotSession.class);
@@ -36,6 +38,7 @@ public class MyTelegramBot extends TelegramLongPollingBot {
     @Override
     public void onUpdateReceived(Update update) {
         if (update.hasMessage()) {
+            chatId = update.getMessage().getChatId();
             switch (update.getMessage().getText()) {
                 case "/help":
                     sendMessage("Привет, я бот NASA! Я высылаю ссылки на картинки по запросу. " +
@@ -48,13 +51,15 @@ public class MyTelegramBot extends TelegramLongPollingBot {
                         throw new RuntimeException(e);
                     }
                     break;
+                default:
+                    sendMessage("Я не понимаю :(");
             }
         }
     }
 
     private void sendMessage(String messageText) {
         SendMessage message = new SendMessage();
-        message.setChatId("1651191402");
+        message.setChatId(chatId);
         message.setText(messageText);
         try {
             execute(message);
